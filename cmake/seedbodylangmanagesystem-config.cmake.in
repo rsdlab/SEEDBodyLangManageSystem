@@ -1,0 +1,54 @@
+# SEEDBodyLangManageSystem CMake config file
+#
+# This file sets the following variables:
+# SEEDBodyLangManageSystem_FOUND - Always TRUE.
+# SEEDBodyLangManageSystem_INCLUDE_DIRS - Directories containing the SEEDBodyLangManageSystem include files.
+# SEEDBodyLangManageSystem_IDL_DIRS - Directories containing the SEEDBodyLangManageSystem IDL files.
+# SEEDBodyLangManageSystem_LIBRARIES - Libraries needed to use SEEDBodyLangManageSystem.
+# SEEDBodyLangManageSystem_DEFINITIONS - Compiler flags for SEEDBodyLangManageSystem.
+# SEEDBodyLangManageSystem_VERSION - The version of SEEDBodyLangManageSystem found.
+# SEEDBodyLangManageSystem_VERSION_MAJOR - The major version of SEEDBodyLangManageSystem found.
+# SEEDBodyLangManageSystem_VERSION_MINOR - The minor version of SEEDBodyLangManageSystem found.
+# SEEDBodyLangManageSystem_VERSION_REVISION - The revision version of SEEDBodyLangManageSystem found.
+# SEEDBodyLangManageSystem_VERSION_CANDIDATE - The candidate version of SEEDBodyLangManageSystem found.
+
+message(STATUS "Found SEEDBodyLangManageSystem-@PROJECT_VERSION@")
+set(SEEDBodyLangManageSystem_FOUND TRUE)
+
+find_package(<dependency> REQUIRED)
+
+#set(SEEDBodyLangManageSystem_INCLUDE_DIRS
+#    "@CMAKE_INSTALL_PREFIX@/include/@PROJECT_NAME_LOWER@-@PROJECT_VERSION_MAJOR@"
+#    ${<dependency>_INCLUDE_DIRS}
+#    )
+#
+#set(SEEDBodyLangManageSystem_IDL_DIRS
+#    "@CMAKE_INSTALL_PREFIX@/include/@PROJECT_NAME_LOWER@-@PROJECT_VERSION_MAJOR@/idl")
+set(SEEDBodyLangManageSystem_INCLUDE_DIRS
+    "@CMAKE_INSTALL_PREFIX@/include/@CPACK_PACKAGE_FILE_NAME@"
+    ${<dependency>_INCLUDE_DIRS}
+    )
+set(SEEDBodyLangManageSystem_IDL_DIRS
+    "@CMAKE_INSTALL_PREFIX@/include/@CPACK_PACKAGE_FILE_NAME@/idl")
+
+
+if(WIN32)
+    set(SEEDBodyLangManageSystem_LIBRARIES
+        "@CMAKE_INSTALL_PREFIX@/@LIB_INSTALL_DIR@/@CMAKE_SHARED_LIBRARY_PREFIX@@PROJECT_NAME_LOWER@@CMAKE_STATIC_LIBRARY_SUFFIX@"
+        ${<dependency>_LIBRARIES}
+        )
+else(WIN32)
+    set(SEEDBodyLangManageSystem_LIBRARIES
+        "@CMAKE_INSTALL_PREFIX@/@LIB_INSTALL_DIR@/@CMAKE_SHARED_LIBRARY_PREFIX@@PROJECT_NAME_LOWER@@CMAKE_SHARED_LIBRARY_SUFFIX@"
+        ${<dependency>_LIBRARIES}
+        )
+endif(WIN32)
+
+set(SEEDBodyLangManageSystem_DEFINITIONS ${<dependency>_DEFINITIONS})
+
+set(SEEDBodyLangManageSystem_VERSION @PROJECT_VERSION@)
+set(SEEDBodyLangManageSystem_VERSION_MAJOR @PROJECT_VERSION_MAJOR@)
+set(SEEDBodyLangManageSystem_VERSION_MINOR @PROJECT_VERSION_MINOR@)
+set(SEEDBodyLangManageSystem_VERSION_REVISION @PROJECT_VERSION_REVISION@)
+set(SEEDBodyLangManageSystem_VERSION_CANDIDATE @PROJECT_VERSION_CANDIDATE@)
+

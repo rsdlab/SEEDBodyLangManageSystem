@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<rtc:RtcProfile rtc:version="0.2" rtc:id="RTC:hiroyasu:Category:SEEDBodyLangManageSystem:1.0.0" xmlns:rtc="http://www.openrtp.org/namespaces/rtc" xmlns:rtcExt="http://www.openrtp.org/namespaces/rtc_ext" xmlns:rtcDoc="http://www.openrtp.org/namespaces/rtc_doc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <rtc:BasicInfo xsi:type="rtcExt:basic_info_ext" rtcExt:saveProject="SEEDBodyLangManageSystem" rtc:updateDate="2019-10-15T15:13:58Z" rtc:creationDate="2019-10-15T14:45:16Z" rtc:version="1.0.0" rtc:vendor="hiroyasu" rtc:maxInstances="1" rtc:executionType="PeriodicExecutionContext" rtc:executionRate="1000.0" rtc:description="SEEDBodyLangManageSystem" rtc:category="Category" rtc:componentKind="DataFlowComponent" rtc:activityType="PERIODIC" rtc:componentType="STATIC" rtc:name="SEEDBodyLangManageSystem">
+        <rtcExt:VersionUpLogs></rtcExt:VersionUpLogs>
+        <rtcExt:VersionUpLogs></rtcExt:VersionUpLogs>
+        <rtcExt:VersionUpLogs></rtcExt:VersionUpLogs>
+    </rtc:BasicInfo>
+    <rtc:Actions>
+        <rtc:OnInitialize xsi:type="rtcDoc:action_status_doc" rtc:implemented="true"/>
+        <rtc:OnFinalize xsi:type="rtcDoc:action_status_doc" rtc:implemented="false"/>
+        <rtc:OnStartup xsi:type="rtcDoc:action_status_doc" rtc:implemented="false"/>
+        <rtc:OnShutdown xsi:type="rtcDoc:action_status_doc" rtc:implemented="false"/>
+        <rtc:OnActivated xsi:type="rtcDoc:action_status_doc" rtc:implemented="true"/>
+        <rtc:OnDeactivated xsi:type="rtcDoc:action_status_doc" rtc:implemented="true"/>
+        <rtc:OnAborting xsi:type="rtcDoc:action_status_doc" rtc:implemented="false"/>
+        <rtc:OnError xsi:type="rtcDoc:action_status_doc" rtc:implemented="false"/>
+        <rtc:OnReset xsi:type="rtcDoc:action_status_doc" rtc:implemented="false"/>
+        <rtc:OnExecute xsi:type="rtcDoc:action_status_doc" rtc:implemented="true"/>
+        <rtc:OnStateUpdate xsi:type="rtcDoc:action_status_doc" rtc:implemented="false"/>
+        <rtc:OnRateChanged xsi:type="rtcDoc:action_status_doc" rtc:implemented="false"/>
+        <rtc:OnAction xsi:type="rtcDoc:action_status_doc" rtc:implemented="false"/>
+        <rtc:OnModeChanged xsi:type="rtcDoc:action_status_doc" rtc:implemented="false"/>
+    </rtc:Actions>
+    <rtc:ConfigurationSet>
+        <rtc:Configuration xsi:type="rtcExt:configuration_ext" rtcExt:variableName="" rtc:unit="" rtc:defaultValue="Execution" rtc:type="string" rtc:name="ActionMode">
+            <rtc:Constraint>
+                <rtc:ConstraintUnitType>
+                    <rtc:Or>
+                        <rtc:Constraint>
+                            <rtc:ConstraintUnitType>
+                                <rtc:propertyIsEqualTo rtc:matchCase="false">
+                                    <rtc:Literal>Execution</rtc:Literal>
+                                </rtc:propertyIsEqualTo>
+                            </rtc:ConstraintUnitType>
+                        </rtc:Constraint>
+                        <rtc:Constraint>
+                            <rtc:ConstraintUnitType>
+                                <rtc:propertyIsEqualTo rtc:matchCase="false">
+                                    <rtc:Literal>Generation</rtc:Literal>
+                                </rtc:propertyIsEqualTo>
+                            </rtc:ConstraintUnitType>
+                        </rtc:Constraint>
+                    </rtc:Or>
+                </rtc:ConstraintUnitType>
+            </rtc:Constraint>
+            <rtcExt:Properties rtcExt:value="radio" rtcExt:name="__widget__"/>
+        </rtc:Configuration>
+        <rtc:Configuration xsi:type="rtcExt:configuration_ext" rtcExt:variableName="" rtc:unit="" rtc:defaultValue="../../data.csv" rtc:type="string" rtc:name="BodyLangList">
+            <rtcExt:Properties rtcExt:value="text" rtcExt:name="__widget__"/>
+        </rtc:Configuration>
+    </rtc:ConfigurationSet>
+    <rtc:DataPorts xsi:type="rtcExt:dataport_ext" rtcExt:position="LEFT" rtcExt:variableName="waistmovement" rtc:unit="" rtc:subscriptionType="" rtc:dataflowType="" rtc:interfaceType="" rtc:idlFile="/usr/include/openrtm-1.2/rtm/idl/BasicDataType.idl" rtc:type="RTC::TimedDouble" rtc:name="waistmovement" rtc:portType="DataInPort"/>
+    <rtc:ServicePorts xsi:type="rtcExt:serviceport_ext" rtcExt:position="RIGHT" rtc:name="RightManipulatorCommonInterface_Common">
+        <rtc:ServiceInterface xsi:type="rtcExt:serviceinterface_ext" rtcExt:variableName="" rtc:path="/home/rsdlab/github/SeedUpperBody-RTM-pkg/RTC/SeedUpperBodyController/idl" rtc:type="JARA_ARM::ManipulatorCommonInterface_Common" rtc:idlFile="/usr/include/openrtm-1.2/rtm/idl/ManipulatorCommonInterface_Common.idl" rtc:instanceName="ManipulatorCommonInterface_Common" rtc:direction="Required" rtc:name="ManipulatorCommonInterface_Common"/>
+    </rtc:ServicePorts>
+    <rtc:ServicePorts xsi:type="rtcExt:serviceport_ext" rtcExt:position="RIGHT" rtc:name="RightManipulatorCommonInterface_Middle">
+        <rtc:ServiceInterface xsi:type="rtcExt:serviceinterface_ext" rtcExt:variableName="" rtc:path="/home/rsdlab/github/SeedUpperBody-RTM-pkg/RTC/SeedUpperBodyRTC/idl" rtc:type="JARA_ARM::ManipulatorCommonInterface_Middle" rtc:idlFile="/usr/include/openrtm-1.2/rtm/idl/ManipulatorCommonInterface_Middle.idl" rtc:instanceName="ManipulatorCommonInterface_Middle" rtc:direction="Required" rtc:name="ManipulatorCommonInterface_Middle"/>
+    </rtc:ServicePorts>
+    <rtc:ServicePorts xsi:type="rtcExt:serviceport_ext" rtcExt:position="RIGHT" rtc:name="LeftManipulatorCommonInterface_Common">
+        <rtc:ServiceInterface xsi:type="rtcExt:serviceinterface_ext" rtcExt:variableName="" rtc:path="/home/rsdlab/github/SeedUpperBody-RTM-pkg/RTC/SeedUpperBodyRTC/idl" rtc:type="JARA_ARM_LEFT::LeftManipulatorCommonInterface_Common" rtc:idlFile="/home/rsdlab/github/SeedUpperBody-RTM-pkg/RTC/SeedUpperBodyRTC/idl/LeftManipulatorCommonInterface_Common.idl" rtc:instanceName="LeftManipulatorCommonInterface_Common" rtc:direction="Required" rtc:name="LeftManipulatorCommonInterface_Common"/>
+    </rtc:ServicePorts>
+    <rtc:ServicePorts xsi:type="rtcExt:serviceport_ext" rtcExt:position="RIGHT" rtc:name="LeftManipulatorCommonInterface_Middle">
+        <rtc:ServiceInterface xsi:type="rtcExt:serviceinterface_ext" rtcExt:variableName="" rtc:path="/home/rsdlab/github/SeedUpperBody-RTM-pkg/RTC/SeedUpperBodyRTC/idl" rtc:type="JARA_ARM_LEFT::LeftManipulatorCommonInterface_Middle" rtc:idlFile="/home/rsdlab/github/SeedUpperBody-RTM-pkg/RTC/SeedUpperBodyRTC/idl/LeftManipulatorCommonInterface_MiddleLevel.idl" rtc:instanceName="LeftManipulatorCommonInterface_Middle" rtc:direction="Required" rtc:name="LeftManipulatorCommonInterface_Middle"/>
+    </rtc:ServicePorts>
+    <rtc:ServicePorts xsi:type="rtcExt:serviceport_ext" rtcExt:position="RIGHT" rtc:name="SeedWaistInterface">
+        <rtc:ServiceInterface xsi:type="rtcExt:serviceinterface_ext" rtcExt:variableName="" rtc:path="/home/rsdlab/github/SeedUpperBody-RTM-pkg/RTC/SeedUpperBodyRTC/idl" rtc:type="SeedWaist::SeedWaistInterface" rtc:idlFile="/home/rsdlab/.openrtp/idl/SeedWaistInterface.idl" rtc:instanceName="SeedWaistInterface" rtc:direction="Required" rtc:name="SeedWaistInterface"/>
+    </rtc:ServicePorts>
+    <rtc:ServicePorts xsi:type="rtcExt:serviceport_ext" rtcExt:position="RIGHT" rtc:name="SeedNeckInterface">
+        <rtc:ServiceInterface xsi:type="rtcExt:serviceinterface_ext" rtcExt:variableName="" rtc:path="/home/rsdlab/github/SeedUpperBody-RTM-pkg/RTC/SeedUpperBodyRTC/idl" rtc:type="SeedNeck::SeedNeckInterface" rtc:idlFile="/home/rsdlab/.openrtp/idl/SeedNeckInterface.idl" rtc:instanceName="SeedNeckInterface" rtc:direction="Required" rtc:name="SeedNeckInterface"/>
+    </rtc:ServicePorts>
+    <rtc:ServicePorts xsi:type="rtcExt:serviceport_ext" rtcExt:position="LEFT" rtc:name="actionmanage">
+        <rtc:ServiceInterface xsi:type="rtcExt:serviceinterface_ext" rtcExt:variableName="ActionManageProvider" rtc:path="/home/rsdlab/github/SEEDBodyLangManageSystem/idl" rtc:type="Action::ActionManage" rtc:idlFile="/home/rsdlab/.openrtp/idl/ActionManage.idl" rtc:instanceName="ActionManageProvider" rtc:direction="Provided" rtc:name="ActionManage"/>
+    </rtc:ServicePorts>
+    <rtc:Language xsi:type="rtcExt:language_ext" rtc:kind="C++"/>
+</rtc:RtcProfile>
